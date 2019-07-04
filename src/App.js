@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { makeNewBoard } from './logic'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state =
       {
-        board: [0, 1, 0,
-          0, 0, 0,
-          0, 0, 0]
+        board: []
       }
     this.toggle = this.toggle.bind(this);
   }
@@ -17,43 +16,58 @@ class App extends Component {
   toggle(evt) {
 
     let index = evt.target.getAttribute('value');
-    console.log(evt.target.value);
-    evt.persist();
-    navigator.testValue = evt;
 
     let newBoard = this.state.board.slice();
 
 
-    if (newBoard[index] === 0) {
-      newBoard[index] = 1;
+    if (newBoard[index].side === 0) {
+      newBoard[index].side = 1;
     } else {
-      newBoard[index] = 0;
+      newBoard[index].side = 0;
     }
 
     this.setState({ board: newBoard })
 
 
   }
+  componentDidMount() {
+
+    let newBoard = makeNewBoard();
+
+
+    this.setState({
+      board: newBoard
+    })
+
+  }
   render() {
-    console.log(this.state)
+
     return (
-      <div className="board" >
-        {this.state.board.map((tile, index) => {
+      <div>
+        {(this.state.board.length > 0) ?
+          <div className="board" >
+            {this.state.board.map((tile, index) => {
 
-          return (
-            (tile === 0) ? <div key={index} value={index} className='red' name='tile' onClick={this.toggle}>x</div>
-              :
+              return (
+                (tile.side === 0) ? <div key={index} value={index} className='red' name='tile' onClick={this.toggle}>x</div>
+                  :
 
-              <img key={index} value={index} className='image-class' src='https://res.cloudinary.com/dmp2crnzz/image/upload/v1562212789/gamer/7.jpg' alt='tile-pic' onClick={this.toggle} />
+                  <img key={index} value={index} className='image-class' src={tile.photoURL} alt='tile-pic' onClick={this.toggle} />
 
 
-          )
+              )
+            }
+            )
+            }
+
+          </div>
+          :
+          <div>
+            <h3>loading</h3>
+          </div>
         }
-        )
-        }
-
       </div>
-    );
+    )
   }
 }
 

@@ -5,30 +5,44 @@ export const makeNewBoard = () => {
   let photoNumberArray = [];
   let newBoard = [];
 
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 5; i++) {
     let isIncluded = true;
     while (isIncluded) {
       let currentRandom = getRandomPictureNumber(totalNumberOfPicture);
       if (!photoNumberArray.includes(currentRandom)) {
+        photoNumberArray.push(currentRandom);
         isIncluded = false;
       }
 
     }
   }
+  console.log(totalNumberOfPicture)
 
-  while (photoNumberArray.length) {
+  while (photoNumberArray.length > 1) {
+
+    let currentNumber = photoNumberArray.pop();
     let photo =
     {
-      photoURL: `https://res.cloudinary.com/dmp2crnzz/image/upload/v1562195541/gamer/{photoNumberArray.pop()}.heic`,
+      photoURL: `https://res.cloudinary.com/dmp2crnzz/image/upload/v1562195541/gamer/${currentNumber}.jpg`,
       side: 0,
-      photoId: photoNumberArray.pop()
+      photoId: currentNumber
     }
     newBoard.push(photo);
     newBoard.push({ ...photo });
 
   }
 
+  let currentNumber = photoNumberArray.pop();
+  let photoNotMatch =
+  {
+    photoURL: `https://res.cloudinary.com/dmp2crnzz/image/upload/v1562195541/gamer/${currentNumber}.jpg`,
+    side: 0,
+    photoId: currentNumber
+  }
+  newBoard.push(photoNotMatch);
+
   let shuffledBoard = randomizeBoard(newBoard);
+
   return shuffledBoard;
 
 }
@@ -51,7 +65,6 @@ const randomizeBoard = (board) => {
     board[randomNewIndex] = board[index];
     board[index] = temp;
 
-    console.log(randomNewIndex, index);
     index--;
 
 
