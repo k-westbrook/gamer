@@ -8,25 +8,35 @@ class App extends Component {
     super(props)
     this.state =
       {
-        board: []
+        board: [],
+        tilesSelected: 0
       }
     this.toggle = this.toggle.bind(this);
   }
 
   toggle(evt) {
 
-    let index = evt.target.getAttribute('value');
 
+    let index = evt.target.getAttribute('value');
     let newBoard = this.state.board.slice();
 
 
-    if (newBoard[index].side === 0) {
+    if (newBoard[index].side === 0 && this.state.tilesSelected < 2) {
       newBoard[index].side = 1;
-    } else {
+      this.setState({
+        board: newBoard,
+        tilesSelected: this.state.tilesSelected + 1
+      })
+    } else if (newBoard[index].side === 1) {
       newBoard[index].side = 0;
+      this.setState({
+        board: newBoard,
+        tilesSelected: this.state.tilesSelected - 1
+      })
     }
 
-    this.setState({ board: newBoard })
+
+
 
 
   }
@@ -41,7 +51,7 @@ class App extends Component {
 
   }
   render() {
-
+    console.log(this.state.tilesSelected)
     return (
       <div>
         {(this.state.board.length > 0) ?
