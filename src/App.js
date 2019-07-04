@@ -41,9 +41,11 @@ class App extends Component {
         {this.state.board.map((tile, index) => {
 
           return (
-            (tile === 0) ? <div key={index} value={index} className='red' name='tile' onClick={this.toggle}></div>
+            (tile === 0) ? <div key={index} value={index} className='red' name='tile' onClick={this.toggle}>x</div>
               :
-              <div key={index} value={index} name='tile' className='blue' onClick={this.toggle}></div>
+
+              <img key={index} value={index} className='image-class' src='https://res.cloudinary.com/dmp2crnzz/image/upload/v1562212789/gamer/7.jpg' alt='tile-pic' onClick={this.toggle} />
+
 
           )
         }
