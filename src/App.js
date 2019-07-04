@@ -9,9 +9,12 @@ class App extends Component {
     this.state =
       {
         board: [],
-        tilesSelected: 0
+        tilesSelected: [],
+        numTilesSelected: 0,
+        totalTilePairsMatched: 0
       }
     this.toggle = this.toggle.bind(this);
+    this.checkForMatch = this.checkForMatch.bind(this);
   }
 
   toggle(evt) {
@@ -21,25 +24,42 @@ class App extends Component {
     let newBoard = this.state.board.slice();
 
 
-    if (newBoard[index].side === 0 && this.state.tilesSelected < 2) {
+    if (newBoard[index].side === 0 && this.state.numTilesSelected < 2) {
       newBoard[index].side = 1;
       this.setState({
         board: newBoard,
-        tilesSelected: this.state.tilesSelected + 1
+        numTilesSelected: this.state.numTilesSelected + 1,
+        tilesSelected: [...this.state.tilesSelected, newBoard[index]]
       })
-    } else if (newBoard[index].side === 1) {
+
+
+    } else if (newBoard[index].side === 1 && !newBoard[index].isMatched) {
       newBoard[index].side = 0;
+      let newTilesSelected = this.state.tilesSelected.slice();
+
+      if (this.state.tilesSelected[0] === newBoard[index]) {
+        newTilesSelected = newTilesSelected.slice(1);
+
+      } else {
+        newTilesSelected = newTilesSelected.slice(0, 1);
+      }
       this.setState({
         board: newBoard,
-        tilesSelected: this.state.tilesSelected - 1
+        numTilesSelected: this.state.numTilesSelected - 1,
+        tilesSelected: newTilesSelected
       })
     }
 
-
-
-
-
   }
+  checkForMatch() {
+    if (this.state.tilesSelected[0].photoId === this.state.tilesSelected[1]) {
+      return true;
+    }
+    return false;
+  }
+
+
+
   componentDidMount() {
 
     let newBoard = makeNewBoard();

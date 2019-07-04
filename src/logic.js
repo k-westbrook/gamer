@@ -25,7 +25,8 @@ export const makeNewBoard = () => {
     {
       photoURL: `https://res.cloudinary.com/dmp2crnzz/image/upload/v1562195541/gamer/${currentNumber}.jpg`,
       side: 0,
-      photoId: currentNumber
+      photoId: currentNumber,
+      isMatched: false
     }
     newBoard.push(photo);
     newBoard.push({ ...photo });
