@@ -1,3 +1,9 @@
+Welcome to West Coast Matching Game!
+
+This game was developed with React and styled by using CSS.
+
+-----------------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
