@@ -133,13 +133,13 @@ code {
   }
   .title
   {
-    font-size: 2rem;
+    font-size: 1rem;
     text-align: center;
     color: aliceblue;
   }
   .ending
   {
-    font-size: 2rem;
+    font-size: 1rem;
     text-align: center;
     color: aliceblue;
     -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
