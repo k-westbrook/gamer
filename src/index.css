@@ -98,13 +98,13 @@ code {
   @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     .red{
       background-color: green;
-      height: 6em;
-      width: 6em;
+      height: 9em;
+      width: 9em;
     }
 
     .image-class{
-      height: 6em;
-      width: 6em;
+      height: 9em;
+      width: 9em;
 
     }
 
@@ -112,19 +112,19 @@ code {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      width:21em;
-      height:21em;
+      width:33em;
+      height:33em;
       justify-items: center;
     }
 
     .tile-container
     {
-      height: 6em;
-      width: 6em;
+      height: 9em;
+      width: 9em;
       perspective: 1000px;
       border-color: black;
       border-style: solid;
-      border-width: .5em;
+      border-width: 1em;
 
     }
     .title
