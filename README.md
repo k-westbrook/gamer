@@ -1,4 +1,4 @@
-Welcome to West Coast Matching Game!
+## Welcome to West Coast Matching Game!
 
 This game was developed with React and styled by using CSS.
 
