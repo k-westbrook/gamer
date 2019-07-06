@@ -115,7 +115,7 @@ class App extends Component {
 
     if (this.state.totalTilePairsMatched === 4) {
       return (
-        <div className='title'>
+        <div className='ending'>
           <h3>YOU WON</h3>
           <h3>now go out and see the world</h3>
         </div>

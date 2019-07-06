@@ -41,18 +41,51 @@ code {
 {
   height: 12em;
   width: 12em;
-  perspective: 1000px;
   border-color: black;
   border-style: solid;
   border-width: 1em;
-
 }
+
+
 .title
 {
   font-size: 2rem;
   text-align: center;
   color: aliceblue;
 }
+.title:hover
+{
+  color:yellow;
+
+}
+.ending
+  {
+    font-size: 2rem;
+    text-align: center;
+    color: aliceblue;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 4s;
+  }
+
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes example {
+    0%   {color:red; left:0px; top:0px;}
+    25%  {color:yellow; left:200px; top:0px;}
+    50%  {color:blue; left:200px; top:200px;}
+    75%  {color:green; left:0px; top:200px;}
+    100% {color:red; left:0px; top:0px;}
+  }
+
+  /* Standard syntax */
+  @keyframes example {
+    0%   {color:red; left:0px; top:0px;}
+    25%  {color:yellow; left:200px; top:0px;}
+    50%  {color:blue; left:200px; top:200px;}
+    75%  {color:green; left:0px; top:200px;}
+    100% {color:red; left:0px; top:0px;}
+  }
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
   body {
@@ -110,8 +143,35 @@ code {
     text-align: center;
     color: aliceblue;
   }
+  .ending
+  {
+    font-size: 2rem;
+    text-align: center;
+    color: aliceblue;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 4s;
   }
 
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes example {
+    0%   {color:red; left:0px; top:0px;}
+    25%  {color:yellow; left:200px; top:0px;}
+    50%  {color:blue; left:200px; top:200px;}
+    75%  {color:green; left:0px; top:200px;}
+    100% {color:red; left:0px; top:0px;}
+  }
+
+  /* Standard syntax */
+  @keyframes example {
+    0%   {color:red; left:0px; top:0px;}
+    25%  {color:yellow; left:200px; top:0px;}
+    50%  {color:blue; left:200px; top:200px;}
+    75%  {color:green; left:0px; top:200px;}
+    100% {color:red; left:0px; top:0px;}
+  }
+}
   @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     body {
       margin-top: 2em;
@@ -167,4 +227,32 @@ code {
       text-align: center;
       color: aliceblue;
     }
+    .ending
+  {
+    font-size: 2rem;
+    text-align: center;
+    color: aliceblue;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 4s;
+  }
+
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes example {
+    0%   {color:red; left:0px; top:0px;}
+    25%  {color:yellow; left:200px; top:0px;}
+    50%  {color:blue; left:200px; top:200px;}
+    75%  {color:green; left:0px; top:200px;}
+    100% {color:red; left:0px; top:0px;}
+  }
+
+  /* Standard syntax */
+  @keyframes example {
+    0%   {color:red; left:0px; top:0px;}
+    25%  {color:yellow; left:200px; top:0px;}
+    50%  {color:blue; left:200px; top:200px;}
+    75%  {color:green; left:0px; top:200px;}
+    100% {color:red; left:0px; top:0px;}
+  }
     }
