@@ -115,18 +115,24 @@ class App extends Component {
 
     if (this.state.totalTilePairsMatched === 4) {
       return (
-        <h3>YOU WON</h3>
+        <div className='title'>
+          <h3>YOU WON</h3>
+          <h3>now go out and see the world</h3>
+        </div>
       )
     } else {
       return (
         <div>
+          <div className='title'>
+            <h2>West Coast Matching Game</h2>
+          </div>
           {(this.state.board.length > 0) ?
             <div className="board" >
               {this.state.board.map((tile, index) => {
                 return (
                   <div className='tile-container'>
 
-                    {(tile.side === 0) ? <div key={index} value={index} className='red' name='tile' onClick={this.toggle}>x</div>
+                    {(tile.side === 0) ? <div key={index} value={index} className='red' name='tile' onClick={this.toggle}></div>
                       :
 
                       <img key={index} value={index} className='image-class' src={tile.photoURL} alt='tile-pic' onClick={this.toggle} />
