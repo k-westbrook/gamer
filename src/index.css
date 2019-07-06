@@ -15,6 +15,7 @@ code {
     monospace;
 }
 
+
 .red{
   background-color: green;
   height: 15em;
@@ -52,3 +53,44 @@ code {
   text-align: center;
   color: aliceblue;
 }
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+{
+
+  .red{
+    background-color: green;
+    height: 2em;
+    width: 2em;
+  }
+
+  .image-class{
+    height: 2em;
+    width: 2em;
+
+  }
+
+  .board{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:7.2em;
+    height:7.2em;
+    justify-items: center;
+  }
+
+  .tile-container
+  {
+    height: 2em;
+    width: 2em;
+    perspective: 1000px;
+    border-color: black;
+    border-style: solid;
+    border-width: .02em;
+
+  }
+  .title
+  {
+    font-size: 2rem;
+    text-align: center;
+    color: aliceblue;
+  }
+  }
