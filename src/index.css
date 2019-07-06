@@ -14,27 +14,32 @@ code {
 
 .red{
   background-color: red;
-  width:10em;
-  height:10em;
-
-  border-color: black;
-  border-style: double;
-
+  height: 20em;
+  width: 20em;
 }
 
 .image-class{
-  width: 10em;
-  height:10em;
-  border-color: black;
-  border-style: double;
+  height: 20em;
+  width: 20em;
+
 }
 
 .board{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width:33em;
-  height:33em;
+  width:66em;
+  height:66em;
   justify-items: center;
+}
+
+.tile-container
+{
+  height: 20em;
+  width: 20em;
+  perspective: 1000px;
+  border-color: black;
+  border-style: solid;
+  border-width: 1em;
 
 }

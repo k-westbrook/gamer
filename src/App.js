@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { makeNewBoard } from './logic'
 
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -11,26 +12,31 @@ class App extends Component {
         board: [],
         tilesSelected: [],
         numTilesSelected: 0,
-        totalTilePairsMatched: 0
+        totalTilePairsMatched: 0,
+        loadTile: false
       }
     this.toggle = this.toggle.bind(this);
     this.checkForMatch = this.checkForMatch.bind(this);
+
   }
 
-  toggle(evt) {
+
+
+
+  async toggle(evt) {
 
 
     let index = evt.target.getAttribute('value');
     let newBoard = this.state.board.slice();
     let numTilesSelectedTemp = this.state.numTilesSelected;
-    let tilesSelectedTemp = [...this.state.tilesSelected, newBoard[index]];
     let totalTilePairsMatchedTemp = this.state.totalTilePairsMatched;
 
 
 
-    if (newBoard[index].side === 0 && numTilesSelectedTemp < 2 && !newBoard[index].tile) {
-      newBoard[index].side = 1;
 
+    if (newBoard[index].side === 0 && numTilesSelectedTemp < 2 && !newBoard[index].isMatched) {
+      newBoard[index].side = 1;
+      let tilesSelectedTemp = [...this.state.tilesSelected, newBoard[index]];
       numTilesSelectedTemp++;
 
       this.setState({
@@ -39,9 +45,13 @@ class App extends Component {
         numTilesSelected: numTilesSelectedTemp
       })
 
+
+
+
       if (numTilesSelectedTemp === 2) {
 
         if (this.checkForMatch(tilesSelectedTemp)) {
+
           tilesSelectedTemp.forEach(tile => {
             tile.isMatched = true;
           })
@@ -54,23 +64,34 @@ class App extends Component {
           })
         }
         else {
+          function sleep(time) {
+            return new Promise((resolve) => setTimeout(resolve, time));
+          }
+          await sleep(2000).then(() => {
+            ;
+
+          })
 
 
           tilesSelectedTemp.forEach(tile => {
             tile.side = 0;
           })
 
+
           this.setState({
             tilesSelected: [],
             numTilesSelected: 0,
-            board: newBoard
+            board: newBoard,
           })
+
         }
       }
 
     }
 
   }
+
+
   checkForMatch(tilesSelected) {
     if (tilesSelected[0].photoId === tilesSelected[1].photoId) {
       return true;
@@ -92,35 +113,41 @@ class App extends Component {
   }
   render() {
 
-    return (
-      <div>
-        {(this.state.board.length > 0) ?
-          <div className="board" >
-            {this.state.board.map((tile, index) => {
-              return (
-                <div>
+    if (this.state.totalTilePairsMatched === 4) {
+      return (
+        <h3>YOU WON</h3>
+      )
+    } else {
+      return (
+        <div>
+          {(this.state.board.length > 0) ?
+            <div className="board" >
+              {this.state.board.map((tile, index) => {
+                return (
+                  <div className='tile-container'>
 
-                  {(tile.side === 0) ? <div key={index} value={index} className='red' name='tile' onClick={this.toggle}>x</div>
-                    :
+                    {(tile.side === 0) ? <div key={index} value={index} className='red' name='tile' onClick={this.toggle}>x</div>
+                      :
 
-                    <img key={index} value={index} className='image-class' src={tile.photoURL} alt='tile-pic' onClick={this.toggle} />
-                  }
+                      <img key={index} value={index} className='image-class' src={tile.photoURL} alt='tile-pic' onClick={this.toggle} />
+                    }
 
 
-                </div>
+                  </div>
+                )
+              }
               )
-            }
-            )
-            }
+              }
 
-          </div>
-          :
-          <div>
-            <h3>loading</h3>
-          </div>
-        }
-      </div>
-    )
+            </div>
+            :
+            <div>
+              <h3>loading</h3>
+            </div>
+          }
+        </div>
+      )
+    }
   }
 }
 
