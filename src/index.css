@@ -133,19 +133,18 @@ code {
     width:21em;
     height:21em;
     justify-items: center;
-
   }
 
   .tile-container
   {
-    height: 12em;
-    width: 12em;
+    height: 6em;
+    width: 6em;
+    perspective: 1000px;
     border-color: black;
     border-style: solid;
     border-width: .5em;
+
   }
-
-
   .title
   {
     font-size: 1rem;
