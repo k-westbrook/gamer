@@ -1,5 +1,5 @@
 body {
-  margin-top: .5em;
+  margin-top: .5giem;
   background-color: black;
   display: flex;
   justify-content: center;
@@ -100,7 +100,7 @@ code {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
   body {
-    margin-top: 2em;
+    margin-top: .5em;
     background-color: black;
     display: flex;
     justify-content: center;
@@ -126,12 +126,12 @@ code {
 
   }
 
-  ..board{
+  .board{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width:42em;
-    height:42em;
+    width:21em;
+    height:21em;
     justify-items: center;
     border-radius: 1em;
     border-color: aliceblue;
@@ -144,7 +144,7 @@ code {
     width: 12em;
     border-color: black;
     border-style: solid;
-    border-width: 1em;
+    border-width: .5em;
   }
 
 
@@ -229,8 +229,8 @@ code {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      width:42em;
-      height:42em;
+      width:33em;
+      height:33em;
       justify-items: center;
       border-radius: 1em;
       border-color: aliceblue;
@@ -239,8 +239,8 @@ code {
 
     .tile-container
     {
-      height: 12em;
-      width: 12em;
+      height: 9em;
+      width: 9em;
       border-color: black;
       border-style: solid;
       border-width: 1em;
