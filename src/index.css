@@ -100,7 +100,7 @@ code {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
   body {
-    margin-top: .5em;
+    margin-top: 2em;
     background-color: black;
     display: flex;
     justify-content: center;
@@ -133,7 +133,7 @@ code {
     width:21em;
     height:21em;
     justify-items: center;
-    border-radius: 1em;
+    border-radius: .2em;
     border-color: aliceblue;
     border-style: groove;
   }
@@ -249,7 +249,7 @@ code {
 
     .title
     {
-      font-size: 1rem;
+      font-size: rem;
       text-align: center;
       color: aliceblue;
     }
