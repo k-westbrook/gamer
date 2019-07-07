@@ -131,7 +131,7 @@ class App extends Component {
             <h2 className='title-font'>West Coast Matching Game</h2>
           </div>
           <div className='game-play'>
-            <h4>{this.state.gamePlay}</h4>
+            <h3>{this.state.gamePlay}</h3>
           </div>
           {(this.state.board.length > 0) ?
             <div className="board" >
