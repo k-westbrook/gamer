@@ -55,6 +55,16 @@ code {
   color:yellow;
 
 }
+
+.title-font
+{
+  margin: 0;
+}
+.game-play
+{
+  color:aliceblue;
+  text-align: center;
+}
 .ending
   {
     font-size: 2rem;

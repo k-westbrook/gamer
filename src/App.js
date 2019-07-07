@@ -13,7 +13,7 @@ class App extends Component {
         tilesSelected: [],
         numTilesSelected: 0,
         totalTilePairsMatched: 0,
-        loadTile: false
+        gamePlay: 'Pick a Tile'
       }
     this.toggle = this.toggle.bind(this);
     this.checkForMatch = this.checkForMatch.bind(this);
@@ -60,14 +60,18 @@ class App extends Component {
           this.setState({
             numTilesSelected: 0,
             tilesSelected: [],
-            totalTilePairsMatched: totalTilePairsMatchedTemp + 1
+            totalTilePairsMatched: totalTilePairsMatchedTemp + 1,
+            gamePlay: "Correct!! Pick more tiles!"
           })
         }
         else {
+          this.setState({
+            gamePlay: "Wrong, pick another pair."
+          })
           function sleep(time) {
             return new Promise((resolve) => setTimeout(resolve, time));
           }
-          await sleep(2000).then(() => {
+          await sleep(1000).then(() => {
             ;
 
           })
@@ -81,7 +85,7 @@ class App extends Component {
           this.setState({
             tilesSelected: [],
             numTilesSelected: 0,
-            board: newBoard,
+            board: newBoard
           })
 
         }
@@ -124,7 +128,10 @@ class App extends Component {
       return (
         <div>
           <div className='title'>
-            <h2>West Coast Matching Game</h2>
+            <h2 className='title-font'>West Coast Matching Game</h2>
+          </div>
+          <div className='game-play'>
+            <h4>{this.state.gamePlay}</h4>
           </div>
           {(this.state.board.length > 0) ?
             <div className="board" >
