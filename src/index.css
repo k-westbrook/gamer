@@ -133,9 +133,7 @@ code {
     width:21em;
     height:21em;
     justify-items: center;
-    border-radius: .2em;
-    border-color: aliceblue;
-    border-style: groove;
+
   }
 
   .tile-container
@@ -232,9 +230,7 @@ code {
       width:33em;
       height:33em;
       justify-items: center;
-      border-radius: 1em;
-      border-color: aliceblue;
-      border-style: groove;
+
     }
 
     .tile-container
