@@ -23,7 +23,7 @@ export const makeNewBoard = () => {
     let currentNumber = photoNumberArray.pop();
     let photo =
     {
-      photoURL: `https://res.cloudinary.com/dmp2crnzz/image/upload/v1562195541/gamer/${currentNumber}.jpg`,
+      photoURL: `https://res.cloudinary.com/dmp2crnzz/image/upload/c_scale,f_auto,w_400/v1562212793/gamer/${currentNumber}.heic`,
       side: 0,
       photoId: currentNumber,
       isMatched: false
@@ -36,7 +36,7 @@ export const makeNewBoard = () => {
   let currentNumber = photoNumberArray.pop();
   let photoNotMatch =
   {
-    photoURL: `https://res.cloudinary.com/dmp2crnzz/image/upload/v1562195541/gamer/${currentNumber}.jpg`,
+    photoURL: `https://res.cloudinary.com/dmp2crnzz/image/upload/c_scale,f_auto,w_400/v1562212793/gamer/${currentNumber}.heic`,
     side: 0,
     photoId: currentNumber
   }
